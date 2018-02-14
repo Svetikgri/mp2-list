@@ -52,3 +52,43 @@ public:
 
 };
 #endif
+
+
+struct TMonom
+{
+	double coef;
+	unsigned abc;
+};
+
+typedef TMonom TKey
+
+	class TLink
+	{
+	public:
+		TKey Key;
+		TLink pNext;
+	};
+
+	class TRingList
+	{
+	private:
+		TLink* head;
+		TLink* cur;
+	public:
+		TRingList();//конструктор создает голову
+		TRingList(const TRingList &);// конструктор копирования
+		~TRingList;//
+		int Reset();//указатель на текущий
+		int GetNext();// получить след эл-т
+		int IsEnded();//дошли ли до конца
+	};
+	 
+	class TPolinom
+	{
+	private:
+		TRingList* list;
+	public:
+		TPolinom(const std string);//конструктор с параметром
+		TPolinom(const TPolinom);//констуктор копирования
+		TPolinom();
+	};
